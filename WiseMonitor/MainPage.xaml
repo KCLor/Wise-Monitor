@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WiseMonitor.Views"
+             x:Class="WiseMonitor.MainPage"
+             FlyoutBackgroundColor="LightSlateGray">
+    
+
+    <FlyoutItem Title="WiseMonitor"
+                Shell.TabBarIsVisible="False"
+                FlyoutDisplayOptions="AsMultipleItems" >
+        <ShellContent Title="Shoping List" IsTabStop="True" ContentTemplate="{DataTemplate local:ShoppingList}" />
+        <ShellContent Title="Browse Store" IsTabStop="True" ContentTemplate="{DataTemplate local:BrowseStore}" />
+        <ShellContent Title="Favourite" IsTabStop="True" ContentTemplate="{DataTemplate local:FavouriteList}" />
+    </FlyoutItem>
+
+    <ShellContent Title="Setting" ContentTemplate="{DataTemplate local:SettingView}" />
+
+</Shell>
