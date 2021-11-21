@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WiseMonitor.Views.BrowseStore"
+             Title="Browse Store"
+             BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
+    
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Jaya Grocer" >
+        <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <SearchBar x:Name="JayaGrocerSearchBar" TextChanged="Handle_JGSBTextChanged" />
+            <Button x:Name="RefreshJG" Text="Refresh" Clicked="btnRefreshJG_Clicked" BackgroundColor="Black" TextColor="White" />
+            <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+                    <Label Text="Products" WidthRequest="350" TextColor="#000" FontAttributes="Bold" 
+                        VerticalOptions="Start"/>
+                    <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                </StackLayout>
+
+                    <ListView x:Name="JayaGrocerResults" ItemsSource="{Binding JayaGrocerResults}"  
+                              HorizontalOptions="FillAndExpand" VerticalOptions="Start" SeparatorColor="Black"
+                              CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+                                        <Label Text="{Binding name}"  WidthRequest="350" TextColor="#000"
+                                            VerticalOptions="Start"/>
+                                        <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339" 
+                                           FontAttributes="Bold" VerticalOptions="Start"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="Pacific">
+        <ContentPage.Content>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <SearchBar x:Name="PacificSearchBar" TextChanged="Handle_PSBTextChanged" />
+                <Button x:Name="RefreshPac" Text="Refresh" Clicked="btnRefreshPac_Clicked" BackgroundColor="Black" TextColor="White" />
+
+                <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+
+                        <Label Text="Products" WidthRequest="350" TextColor="#000" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                        <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                    </StackLayout>
+                    <ListView x:Name="PacificResults" SeparatorColor="Navy" CachingStrategy="RecycleElement">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+
+                                        <Label Text="{Binding name}" WidthRequest="350" TextColor="#000" VerticalOptions="Start" />
+                                        <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="Sunshine">
+        <ContentPage.Content>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <SearchBar x:Name="SunshineSearchBar" TextChanged="Handle_SSBTextChanged" />
+                <Button x:Name="RefreshSun" Text="Refresh" Clicked="btnRefreshSun_Clicked" BackgroundColor="Black" TextColor="White" />
+                <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+
+                        <Label Text="Products" WidthRequest="350" TextColor="#000" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                        <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                    </StackLayout>
+                    <ListView x:Name="SunshineResults" SeparatorColor="Navy" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+
+                                        <Label Text="{Binding name}" WidthRequest="350" TextColor="#000" VerticalOptions="Start" />
+                                        <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="Search All">
+        <ContentPage.Content>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <SearchBar x:Name="SearchBar4All" TextChanged="Handle_SB4ATextChanged" />
+                <Button x:Name="Refresh" Text="Refresh" Clicked="btnRefresh_Clicked" BackgroundColor="Black" TextColor="White" />
+                <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+
+                        <Label Text="JayaGrocer" WidthRequest="300" TextColor="#000" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                        <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                    </StackLayout>
+                    <ListView x:Name="JayaGrocerResults2" ItemsSource="{Binding JayaGrocerResults}"  
+                              HorizontalOptions="FillAndExpand" VerticalOptions="Start" SeparatorColor="Black"
+                              CachingStrategy="RecycleElement" ItemSelected="JayaGrocerResults2_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+                                        <Label Text="{Binding name}" WidthRequest="350" TextColor="#000"
+                                            VerticalOptions="Start"/>
+                                        <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                           FontAttributes="Bold" VerticalOptions="Start"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+
+                            <Label Text="Pacific" WidthRequest="350" TextColor="#000" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                            <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                        </StackLayout>
+                        <ListView x:Name="PacificResults2" CachingStrategy="RecycleElement" SeparatorColor="Navy" ItemSelected="PacificResults2_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+
+                                            <Label Text="{Binding name}" WidthRequest="350" TextColor="#000" VerticalOptions="Start" />
+                                            <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <StackLayout Orientation="Vertical" Grid.Row="1" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="5"
+                             BackgroundColor="#c9c9c9">
+
+                                <Label Text="Sunshine" WidthRequest="350" TextColor="#000" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                                <Label Text="Price" WidthRequest="100" TextColor="#fc0339" FontAttributes="Bold"
+                        VerticalOptions="Start"/>
+                            </StackLayout>
+                            <ListView x:Name="SunshineResults2" CachingStrategy="RecycleElement" SeparatorColor="Navy" ItemSelected="SunshineResults2_ItemSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Start" Padding="5" BackgroundColor="#fff">
+
+                                                <Label Text="{Binding name}" WidthRequest="350" TextColor="#000" VerticalOptions="Start" />
+                                                <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

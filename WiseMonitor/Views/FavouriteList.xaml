@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WiseMonitor.Views.FavouriteList"
+             Title="Favourite">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Please go to Search All Tab in Browse Store and select items that you like to keep track of!"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        
+        <Button x:Name="Refreshlist" Text="Refresh" Clicked="btnRefreshlist_Clicked" BackgroundColor="Black" TextColor="White" />
+            <CollectionView x:Name="Favlist" ItemsSource="{Binding Favlist}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="DeepPink" Invoked="delete_Invoked" />
+                                    <SwipeItem Text="Shopping List" BackgroundColor="ForestGreen" Invoked="addToSL_Invoked" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <StackLayout>
+                                <Label Text="{Binding name}" WidthRequest="350" TextColor="#000" VerticalOptions="Start" />
+                                <Label Text="{Binding price}" WidthRequest="100" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                            </StackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

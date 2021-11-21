@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WiseMonitor.Views.ShoppingList"
+             Title="Shopping List">
+    
+        <ContentPage.Content>
+
+        <StackLayout Margin="20">
+            <CollectionView x:Name="Shoppinglist1" ItemsSource="{Binding Shoppinglist1}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="DeepPink" Invoked="Delete_Invoked" />
+                                    <SwipeItem Text="Favourite" BackgroundColor="ForestGreen" Invoked="Favourite_Invoked" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout>
+                                <Label Text="{Binding name}" WidthRequest="450" TextColor="#000" VerticalOptions="Start" />
+                                <Label Text="{Binding price}" WidthRequest="150" TextColor="#fc0339"
+                                            FontAttributes="Bold" VerticalOptions="Start" />
+                            </StackLayout>
+                            </SwipeView>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Editor x:Name="editor" Placeholder="Enter your note" HeightRequest="100" />
+            <!-- Layout children in two columns -->
+            <Grid ColumnDefinitions="*,*">
+                <Button Text="Save" Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
